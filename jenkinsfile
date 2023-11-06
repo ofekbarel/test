@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage ('build'){
             steps {
-                bat 'mvn clean package'
+                sh 'mvn clean package'
             }
             post{
                 success{
@@ -21,7 +21,7 @@ pipeline {
         }
         stage ('Deploy to webapp'){
             steps {
-                bat 'copy **/*.war C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps'
+                bat 'copy **\*.war C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps'
 
             }
         }
