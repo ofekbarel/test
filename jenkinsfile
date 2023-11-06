@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    tools {
+        maven "Maven"
+    }
+    triggers {
+        pollSCM('* * * * *')
+    }
+    stages {
+        stage ('build'){
+            steps {
+                bat 'mvn clean package'
+            }
+            post{
+                success{
+                    echo "Archiving the Artifacts"
+                    archiveArtifacts: '**/target/*.war'
+                }
+            }
+        }
+        stage ('Deploy to webapp'){
+            steps {
+                bat 'copy **/*.war C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps'
+
+            }
+        }
+
+    }
+
+}
