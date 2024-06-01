@@ -13,7 +13,7 @@ node {
                 sh "git config user.email ofekbarel10@gmail.com"
                 sh "git config user.name ofekbarel"
                 sh "cat ./coffeHelm/values.yaml"
-                sh "sed -i 's+ofekbarel11/coffeproject.*+ofekbarel11/coffeproject:10+g' ./coffeHelm/values.yml"
+                sh "sed -i 's+ofekbarel11/coffeproject.*+ofekbarel11/coffeproject:10+g' ./coffeHelm/values.yaml"
                 sh "cat ./coffeHelm/values.yaml"
                 sh "git add ."
                 sh "git commit -m 'Done by jenkins job number : ${env.BUILD_NUMBER}'"
