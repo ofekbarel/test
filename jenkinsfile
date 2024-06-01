@@ -12,7 +12,7 @@ node {
            withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_TOKEN')]) {
                 sh "git config user.email ofekbarel10@gmail.com"
                 sh "git config user.name ofekbarel"
-                sh "cat ./coffeHelm/values.yml"
+                sh "cat ./coffeHelm/values.yaml"
                 sh "sed -i 's+ofekbarel11/coffeproject.*+ofekbarel11/coffeproject:10+g' ./coffeHelm/values.yml"
                 sh "cat ./coffeHelm/values.yml"
                 sh "git add ."
